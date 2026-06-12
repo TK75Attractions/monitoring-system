@@ -1,0 +1,7 @@
+{
+    "name": "com.tk.attraction.monitor",
+    "displayName": "AttractionMonitor",
+    "version": "0.0.0",
+    "unity": "6000.0",
+    "description": "This is a package for monitoring attractions in Unity."
+}
