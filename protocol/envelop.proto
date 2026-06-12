@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package proc_monitor;
+
+message Envelop{
+    string subject = 1;
+    bytes data = 2;
+
+    string source = 3;
+
+    int32 version = 4;
+    int64 timestamp = 5;
+    string trace_id = 6;
+}
