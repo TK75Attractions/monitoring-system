@@ -1,0 +1,4 @@
+syntax = "proto3";
+
+package com.tk75attractions.monitoring.v1;
+
