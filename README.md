@@ -1,1 +1,2 @@
-# proc-monitor
+# monitoring-system
+[アーキテクチャのFigma](https://www.figma.com/design/rpumjzJB8sDnrCut9YrogG/%E3%82%A2%E3%83%88%E3%83%A9%E3%82%AF%E7%9B%A3%E8%A6%96%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3?node-id=0-1&p=f&t=2MTT8NyBC0lKcF58-0)
