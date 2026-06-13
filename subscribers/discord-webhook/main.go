@@ -2,11 +2,14 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"log/slog"
 	"os"
 	"sync"
 
+	monitoringv1 "github.com/TK75Attractions/monitoring-system/gen"
 	"github.com/nats-io/nats.go"
+	"google.golang.org/protobuf/proto"
 )
 
 const NATS_IP_ADDR = "127.0.0.1"
@@ -28,8 +31,12 @@ func main() {
 	wg := sync.WaitGroup{}
 	wg.Add(1)
 
-	nc.Subscribe(">", func(msg *nats.Msg) {
-		slog.Info("received message", "message", string(msg.Data))
+	nc.Subscribe("alert.system-stats.battery", func(msg *nats.Msg) {
+		packet := &monitoringv1.LogPacket{}
+		if err := proto.Unmarshal(msg.Data, packet); err != nil {
+			log.Fatalf("failed to unmarshal LogPacket: %v", err)
+		}
+		slog.Info("received message", "message", packet)
 		wg.Done()
 	})
 	wg.Wait()

@@ -3,8 +3,13 @@ module github.com/TK75Attractions/monitoring-system/subscribers/discord-webhook
 go 1.26.3
 
 require (
-	github.com/klauspost/compress v1.18.5 // indirect
+	github.com/TK75Attractions/monitoring-system v0.0.0-20260613145230-97ff9d2a3a83
 	github.com/nats-io/nats.go v1.52.0
+	google.golang.org/protobuf v1.36.11
+)
+
+require (
+	github.com/klauspost/compress v1.18.5 // indirect
 	github.com/nats-io/nkeys v0.4.15 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	golang.org/x/crypto v0.49.0 // indirect
