@@ -1,3 +1,18 @@
 syntax = "proto3";
 
 package com.tk75attractions.monitoring.v1;
+
+enum LogLevel {
+  LOG_LEVEL_UNSPECIFIED = 0;
+  LOG_LEVEL_VERBOSE = 1;
+  LOG_LEVEL_DEBUG = 2;
+  LOG_LEVEL_INFO = 3;
+  LOG_LEVEL_WARN = 4;
+  LOG_LEVEL_ERROR = 5;
+}
+
+message LogPacket {
+  LogLevel level = 1;
+  string message = 2;
+  int64 occured_at = 3;
+}
