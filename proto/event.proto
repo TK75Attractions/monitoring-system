@@ -2,3 +2,17 @@ syntax = "proto3";
 
 package com.tk75attractions.monitoring.v1;
 
+enum EventKind {
+  EVENT_KIND_UNSPECIFIED = 0;
+  EVENT_KIND_STARTED = 1;
+  EVENT_KIND_FINISHED = 2;
+}
+
+message EventPacket {
+  int64 occured_at = 1;
+  oneof data {
+    StruckoutEvent struckout = 2;
+  }
+}
+
+message StruckoutEvent {}
