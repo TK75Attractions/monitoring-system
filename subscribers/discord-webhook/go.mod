@@ -1,14 +1,12 @@
-module github.com/TK75Attractions/monitoring-system/publishers/system-status
+module github.com/TK75Attractions/monitoring-system/subscribers/discord-webhook
 
-go 1.26.2
-
-require golang.org/x/sys v0.46.0
+go 1.26.3
 
 require (
-	github.com/BurntSushi/toml v1.6.0 // indirect
 	github.com/klauspost/compress v1.18.5 // indirect
 	github.com/nats-io/nats.go v1.52.0
 	github.com/nats-io/nkeys v0.4.15 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	golang.org/x/crypto v0.49.0 // indirect
+	golang.org/x/sys v0.42.0 // indirect
 )
