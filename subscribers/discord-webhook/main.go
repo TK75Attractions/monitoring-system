@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
+	"sync"
 
 	"github.com/nats-io/nats.go"
 )
@@ -18,16 +19,20 @@ func main() {
 	slog.Info("connecting to NATS server", "url", natsUrl)
 	nc, err := nats.Connect(natsUrl)
 	if err != nil {
-		slog.Error("failed to connect to NATS server: %v\n", "error", err)
+		slog.Error("failed to connect to NATS server", "error", err)
 		return
 	}
 	defer nc.Close()
 	slog.Info("succeed to connect to NATS server")
 
-	if err = nc.Publish("hello", []byte("Hello World")); err != nil {
-		slog.Error("failed to publish message", "error", err)
-	}
-	slog.Info("succeed to publish message")
+	wg := sync.WaitGroup{}
+	wg.Add(1)
+
+	nc.Subscribe(">", func(msg *nats.Msg) {
+		slog.Info("received message", "message", string(msg.Data))
+		wg.Done()
+	})
+	wg.Wait()
 }
 
 func initLog() {
