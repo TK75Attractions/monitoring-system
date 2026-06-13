@@ -1,6 +1,7 @@
-go 1.26.3
+go 1.26.4
 
 use (
+	./gen
 	./publishers/system-status
 	./subscribers/discord-webhook
 )
