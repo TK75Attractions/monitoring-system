@@ -2,10 +2,13 @@ module github.com/TK75Attractions/monitoring-system/publishers/system-status
 
 go 1.26.2
 
-require golang.org/x/sys v0.46.0
+require (
+	github.com/TK75Attractions/monitoring-system v0.0.0-20260613145230-97ff9d2a3a83
+	golang.org/x/sys v0.46.0
+	google.golang.org/protobuf v1.36.11
+)
 
 require (
-	github.com/BurntSushi/toml v1.6.0 // indirect
 	github.com/klauspost/compress v1.18.5 // indirect
 	github.com/nats-io/nats.go v1.52.0
 	github.com/nats-io/nkeys v0.4.15 // indirect
