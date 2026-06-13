@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package com.tk75attractions.monitoring.v1;
+package com.tk75attractions.monitoring.proto.v1;
 
 enum LogLevel {
   LOG_LEVEL_UNSPECIFIED = 0;

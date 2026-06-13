@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: log.proto
 
-package monitoringv1
+package protov1
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -81,7 +81,7 @@ func (LogLevel) EnumDescriptor() ([]byte, []int) {
 
 type LogPacket struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Level         LogLevel               `protobuf:"varint,1,opt,name=level,proto3,enum=com.tk75attractions.monitoring.v1.LogLevel" json:"level,omitempty"`
+	Level         LogLevel               `protobuf:"varint,1,opt,name=level,proto3,enum=com.tk75attractions.monitoring.proto.v1.LogLevel" json:"level,omitempty"`
 	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	OccuredAt     int64                  `protobuf:"varint,3,opt,name=occured_at,json=occuredAt,proto3" json:"occured_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -143,9 +143,9 @@ var File_log_proto protoreflect.FileDescriptor
 
 const file_log_proto_rawDesc = "" +
 	"\n" +
-	"\tlog.proto\x12!com.tk75attractions.monitoring.v1\"\x87\x01\n" +
-	"\tLogPacket\x12A\n" +
-	"\x05level\x18\x01 \x01(\x0e2+.com.tk75attractions.monitoring.v1.LogLevelR\x05level\x12\x18\n" +
+	"\tlog.proto\x12'com.tk75attractions.monitoring.proto.v1\"\x8d\x01\n" +
+	"\tLogPacket\x12G\n" +
+	"\x05level\x18\x01 \x01(\x0e21.com.tk75attractions.monitoring.proto.v1.LogLevelR\x05level\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1d\n" +
 	"\n" +
 	"occured_at\x18\x03 \x01(\x03R\toccuredAt*\x8e\x01\n" +
@@ -155,8 +155,8 @@ const file_log_proto_rawDesc = "" +
 	"\x0fLOG_LEVEL_DEBUG\x10\x02\x12\x12\n" +
 	"\x0eLOG_LEVEL_INFO\x10\x03\x12\x12\n" +
 	"\x0eLOG_LEVEL_WARN\x10\x04\x12\x13\n" +
-	"\x0fLOG_LEVEL_ERROR\x10\x05B\x97\x02\n" +
-	"%com.com.tk75attractions.monitoring.v1B\bLogProtoP\x01Z=github.com/TK75Attractions/monitoring-system/gen;monitoringv1\xa2\x02\x03CTM\xaa\x02!Com.Tk75attractions.Monitoring.V1\xca\x02!Com\\Tk75attractions\\Monitoring\\V1\xe2\x02-Com\\Tk75attractions\\Monitoring\\V1\\GPBMetadata\xea\x02$Com::Tk75attractions::Monitoring::V1b\x06proto3"
+	"\x0fLOG_LEVEL_ERROR\x10\x05B\xb2\x02\n" +
+	"+com.com.tk75attractions.monitoring.proto.v1B\bLogProtoP\x01Z8github.com/TK75Attractions/monitoring-system/gen;protov1\xa2\x02\x04CTMP\xaa\x02'Com.Tk75attractions.Monitoring.Proto.V1\xca\x02'Com\\Tk75attractions\\Monitoring\\Proto\\V1\xe2\x023Com\\Tk75attractions\\Monitoring\\Proto\\V1\\GPBMetadata\xea\x02+Com::Tk75attractions::Monitoring::Proto::V1b\x06proto3"
 
 var (
 	file_log_proto_rawDescOnce sync.Once
@@ -173,11 +173,11 @@ func file_log_proto_rawDescGZIP() []byte {
 var file_log_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_log_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_log_proto_goTypes = []any{
-	(LogLevel)(0),     // 0: com.tk75attractions.monitoring.v1.LogLevel
-	(*LogPacket)(nil), // 1: com.tk75attractions.monitoring.v1.LogPacket
+	(LogLevel)(0),     // 0: com.tk75attractions.monitoring.proto.v1.LogLevel
+	(*LogPacket)(nil), // 1: com.tk75attractions.monitoring.proto.v1.LogPacket
 }
 var file_log_proto_depIdxs = []int32{
-	0, // 0: com.tk75attractions.monitoring.v1.LogPacket.level:type_name -> com.tk75attractions.monitoring.v1.LogLevel
+	0, // 0: com.tk75attractions.monitoring.proto.v1.LogPacket.level:type_name -> com.tk75attractions.monitoring.proto.v1.LogLevel
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

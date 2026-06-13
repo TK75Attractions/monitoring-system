@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: event.proto
 
-package monitoringv1
+package protov1
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -184,19 +184,19 @@ var File_event_proto protoreflect.FileDescriptor
 
 const file_event_proto_rawDesc = "" +
 	"\n" +
-	"\vevent.proto\x12!com.tk75attractions.monitoring.v1\"\x87\x01\n" +
+	"\vevent.proto\x12'com.tk75attractions.monitoring.proto.v1\"\x8d\x01\n" +
 	"\vEventPacket\x12\x1d\n" +
 	"\n" +
-	"occured_at\x18\x01 \x01(\x03R\toccuredAt\x12Q\n" +
-	"\tstruckout\x18\x02 \x01(\v21.com.tk75attractions.monitoring.v1.StruckoutEventH\x00R\tstruckoutB\x06\n" +
+	"occured_at\x18\x01 \x01(\x03R\toccuredAt\x12W\n" +
+	"\tstruckout\x18\x02 \x01(\v27.com.tk75attractions.monitoring.proto.v1.StruckoutEventH\x00R\tstruckoutB\x06\n" +
 	"\x04data\"\x10\n" +
 	"\x0eStruckoutEvent*X\n" +
 	"\tEventKind\x12\x1a\n" +
 	"\x16EVENT_KIND_UNSPECIFIED\x10\x00\x12\x16\n" +
 	"\x12EVENT_KIND_STARTED\x10\x01\x12\x17\n" +
-	"\x13EVENT_KIND_FINISHED\x10\x02B\x99\x02\n" +
-	"%com.com.tk75attractions.monitoring.v1B\n" +
-	"EventProtoP\x01Z=github.com/TK75Attractions/monitoring-system/gen;monitoringv1\xa2\x02\x03CTM\xaa\x02!Com.Tk75attractions.Monitoring.V1\xca\x02!Com\\Tk75attractions\\Monitoring\\V1\xe2\x02-Com\\Tk75attractions\\Monitoring\\V1\\GPBMetadata\xea\x02$Com::Tk75attractions::Monitoring::V1b\x06proto3"
+	"\x13EVENT_KIND_FINISHED\x10\x02B\xb4\x02\n" +
+	"+com.com.tk75attractions.monitoring.proto.v1B\n" +
+	"EventProtoP\x01Z8github.com/TK75Attractions/monitoring-system/gen;protov1\xa2\x02\x04CTMP\xaa\x02'Com.Tk75attractions.Monitoring.Proto.V1\xca\x02'Com\\Tk75attractions\\Monitoring\\Proto\\V1\xe2\x023Com\\Tk75attractions\\Monitoring\\Proto\\V1\\GPBMetadata\xea\x02+Com::Tk75attractions::Monitoring::Proto::V1b\x06proto3"
 
 var (
 	file_event_proto_rawDescOnce sync.Once
@@ -213,12 +213,12 @@ func file_event_proto_rawDescGZIP() []byte {
 var file_event_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_event_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_event_proto_goTypes = []any{
-	(EventKind)(0),         // 0: com.tk75attractions.monitoring.v1.EventKind
-	(*EventPacket)(nil),    // 1: com.tk75attractions.monitoring.v1.EventPacket
-	(*StruckoutEvent)(nil), // 2: com.tk75attractions.monitoring.v1.StruckoutEvent
+	(EventKind)(0),         // 0: com.tk75attractions.monitoring.proto.v1.EventKind
+	(*EventPacket)(nil),    // 1: com.tk75attractions.monitoring.proto.v1.EventPacket
+	(*StruckoutEvent)(nil), // 2: com.tk75attractions.monitoring.proto.v1.StruckoutEvent
 }
 var file_event_proto_depIdxs = []int32{
-	2, // 0: com.tk75attractions.monitoring.v1.EventPacket.struckout:type_name -> com.tk75attractions.monitoring.v1.StruckoutEvent
+	2, // 0: com.tk75attractions.monitoring.proto.v1.EventPacket.struckout:type_name -> com.tk75attractions.monitoring.proto.v1.StruckoutEvent
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
