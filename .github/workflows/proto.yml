@@ -3,11 +3,15 @@ on:
   push:
     branches: ["main"]
     paths:
-      - proto/
+      - proto/**
+      - buf.yaml
+      - buf.gen.yaml
   pull_request:
     branches: ["main"]
     paths:
-      - proto/
+      - proto/**
+      - buf.yaml
+      - buf.gen.yaml
 jobs:
   build:
     strategy:
