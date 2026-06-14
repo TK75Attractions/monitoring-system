@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package com.tk75attractions.monitoring.v1;
+package tk75attractions.monitoring.v1;
 
 enum EventKind {
   EVENT_KIND_UNSPECIFIED = 0;
