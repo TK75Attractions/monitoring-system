@@ -18,6 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: bufbuild/buf-action@219c9aef02e8f6a27e4b46274db239ef513f5d53
+        with:
+          setup_only: true
       - name: Run command
         run: buf ${{matrix.command}}
       - uses: autofix-ci/action@c5b2d67aa2274e7b5a18224e8171550871fc7e4a
