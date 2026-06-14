@@ -1,0 +1,24 @@
+name: Proto
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - proto/
+  pull_request:
+    branches: ["main"]
+    paths:
+      - proto/
+jobs:
+  build:
+    strategy:
+      matrix:
+        command: ["lint", "format -w ", "generate"]
+        
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+      - uses: bufbuild/buf-action@219c9aef02e8f6a27e4b46274db239ef513f5d53
+      - name: Run command
+        run: buf ${{matrix.command}}
+      - uses: autofix-ci/action@c5b2d67aa2274e7b5a18224e8171550871fc7e4a
+  
