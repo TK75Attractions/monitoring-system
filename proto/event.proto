@@ -15,4 +15,14 @@ message EventPacket {
   }
 }
 
-message StruckoutEvent {}
+message StruckoutEvent {
+  enum Difficulty {
+    DIFFICULTY_UNSPECIFIED = 0;
+    DIFFICULTY_NORMAL = 1;
+    DIFFICULTY_HARD = 2;
+    DIFFICULTY_VERYHARD = 3;
+  }
+
+  EventKind kind = 1;
+  Difficulty difficulty = 2;
+}
