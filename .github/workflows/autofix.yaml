@@ -1,0 +1,26 @@
+name: autofix.ci // the name required for security reason
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dorny/paths-filter@v4
+        id: filter
+        with:
+          filters: |
+            proto:
+              - 'proto/**'
+              - 'buf.yaml'
+              - 'buf.gen.yaml'
+      - name: proto
+        if: steps.filter.outputs.proto == 'true'
+        uses: ./.github/workflows/proto.yaml
+      - name: Commit changes
+        uses: autofix-ci/action@c5b2d67aa2274e7b5a18224e8171550871fc7e4a
+  
