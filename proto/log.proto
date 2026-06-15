@@ -11,16 +11,6 @@ enum LogLevel {
   LOG_LEVEL_ERROR = 5;
 }
 
-message SystemLog {
-  message BatteryLog {
-    uint32 battery_capacity = 1;
-  }
-
-  oneof data {
-    BatteryLog battery = 1;
-  }
-}
-
 message CrashLog {}
 
 message LogPacket {
@@ -28,7 +18,6 @@ message LogPacket {
   int64 occured_at = 2;
   oneof body {
     string app = 3;
-    SystemLog system = 4;
     CrashLog crash = 5;
   }
 }
