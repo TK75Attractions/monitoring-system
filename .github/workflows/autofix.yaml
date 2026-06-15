@@ -1,4 +1,4 @@
-name: autofix.ci // the name required for security reason
+name: autofix.ci # the name required for security reason
 on:
   push:
     branches: ["main"]
