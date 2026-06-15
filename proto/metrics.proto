@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package tk75attractions.monitoring.v1;
+
+message SystemMetricsPacket {
+  message BatteryLog {
+    uint32 battery_capacity = 1;
+  }
+
+  oneof data {
+    BatteryLog battery = 1;
+  }
+}
