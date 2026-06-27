@@ -11,28 +11,18 @@ namespace TK75Attractions.Monitoring
         {
             sourceProvider = new (prefix);
         }
-
-        public ISpan StartSpan(string name, string spanName, Span parent = null)
+        public ISpan StartSpan(string instrucmentationName, string spanName, ISpan parent = null)
         {
-            ActivitySource activitySource = sourceProvider.GetActivitySource(name);
+            ActivitySource activitySource = sourceProvider.GetActivitySource(instrucmentationName);
 
-            var parentContext = GetParentSource(parent);
+            var parentContext = GetParentContext(parent);
 
             var activity = activitySource.StartActivity(spanName,ActivityKind.Internal,parentContext);
-            ISpan result;
-            if(activity == null)
-            {
-                result = new NoOpSpan();
-            }
-            else
-            {
-                result = new Span(activity);
-            }
 
-            return result;
+            return activity == null ? new NoOpSpan() : new Span(activity);
         }
 
-        private ActivityContext GetParentSource(Span parent = null)
+        private ActivityContext GetParentContext(ISpan parent = null)
         {
             return parent?.ActivityContext ?? Activity.Current?.Context ?? default;
         }

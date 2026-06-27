@@ -7,6 +7,7 @@ namespace TK75Attractions.Monitoring
 {
     internal class NoOpSpan : ISpan, IDisposable
     {
+        public ActivityContext ActivityContext => default;
         public void AddTag(
             string name,
             object content

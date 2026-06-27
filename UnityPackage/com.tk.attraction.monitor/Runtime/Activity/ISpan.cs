@@ -6,6 +6,9 @@ namespace TK75Attractions.Monitoring
 {
     internal interface ISpan
     {
+
+        public ActivityContext ActivityContext { get; }
+        
         public void AddTag(
             string name,
             object content
