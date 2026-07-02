@@ -12,24 +12,12 @@ namespace TK75Attractions.Monitoring
     public static class ActivityManager
     {
         private static readonly ConcurrentDictionary<string, ActivitySource> _sources = new();
-        public static Activity StartActivity(string sourceName, string name, SpanKind kind = SpanKind.Internal)
+        public static Span StartActivity(string sourceName, string name, SpanKind kind = SpanKind.Internal)
         {
-            return GetSource(sourceName)
-                .StartActivity(name, GetKind(kind))
+            Activity activity = GetSource(sourceName)
+                .StartActivity(name, TelemetryEnumConverter.GetKind(kind))
                 ?? throw new InvalidOperationException("No ActivityListener registered");
-        }
-
-        private static ActivityKind GetKind(SpanKind kind)
-        {
-            return kind switch
-            {
-                SpanKind.Internal => ActivityKind.Internal,
-                SpanKind.Client => ActivityKind.Client,
-                SpanKind.Server => ActivityKind.Server,
-                SpanKind.Producer => ActivityKind.Producer,
-                SpanKind.Consumer => ActivityKind.Consumer,
-                _ => throw new ArgumentOutOfRangeException(nameof(kind))
-            };
+            return new Span(activity);
         }
 
         private static ActivitySource GetSource(string name) => _sources.GetOrAdd(name,static n => new ActivitySource(n));
