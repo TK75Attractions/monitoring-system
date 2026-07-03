@@ -6,7 +6,6 @@ using OpenTelemetry.Trace;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Exporter.OpenTelemetryProtocol;
 using OpenTelemetry.Logs;
-using System.Diagnostics;
 using System.Collections.Generic;
 using OpenTelemetry.Exporter;
 using System.Threading.Tasks;
