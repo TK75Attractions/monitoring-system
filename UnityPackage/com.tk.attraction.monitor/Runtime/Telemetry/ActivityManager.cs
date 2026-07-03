@@ -14,12 +14,19 @@ namespace TK75Attractions.Monitoring
     {
         private static readonly ConcurrentDictionary<string, ActivitySource> _sources = new();
         private static TracerProvider _tracerProvider;
+        private static ILoggerFactory _loggerfacotry;
         private static bool isInit = false;
 
-        internal static void Initialize(TracerProvider tracerProvider, List<string> sourceNames)
+        internal static void Initialize
+        (
+            TracerProvider tracerProvider,
+            ILoggerFactory factory,
+            List<string> sourceNames
+        )
         {
             if(isInit) return;
             _tracerProvider = tracerProvider;
+            _loggerfacotry = factory;
             
             foreach (var source in sourceNames)
             {
@@ -37,6 +44,13 @@ namespace TK75Attractions.Monitoring
             
             UnityEngine.Debug.Log($"Activity started: {activity.Id}");
             return new Span(activity);
+        }
+
+        public static Log GetLogger(string name)
+        {
+            if (!isInit) throw new Exception("Called before Init");
+            var logger = _loggerfacotry.CreateLogger(name);
+            return new Log(logger);
         }
 
         private static ActivitySource GetSource(string name) => _sources.GetOrAdd(name,static n => new ActivitySource(n));

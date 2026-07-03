@@ -4,6 +4,8 @@ using OpenTelemetry;
 using System;
 using OpenTelemetry.Trace;
 using OpenTelemetry.Resources;
+using OpenTelemetry.Exporter.OpenTelemetryProtocol;
+using OpenTelemetry.Logs;
 using System.Diagnostics;
 using System.Collections.Generic;
 using OpenTelemetry.Exporter;
@@ -51,6 +53,28 @@ namespace TK75Attractions.Monitoring
                     option.Protocol = OtlpExportProtocol.HttpProtobuf;
                 });            // 送信先
 
+            var loggerFactory = LoggerFactory.Create(loggingBuilder =>
+            {
+                loggingBuilder.ClearProviders();
+
+                loggingBuilder.AddOpenTelemetry(logging =>
+                {
+                    logging.SetResourceBuilder(
+                        ResourceBuilder.CreateDefault()
+                            .AddService(_name)  // "your-service" → _name に変更
+                    );
+
+                    logging.IncludeFormattedMessage = true;
+                    logging.IncludeScopes = true;
+
+                    logging.AddOtlpExporter(otlp =>
+                    {
+                        otlp.Endpoint = new Uri($"http://{_ip}:4318/v1/logs");  // localhost → _ip に変更
+                        otlp.Protocol = OtlpExportProtocol.HttpProtobuf;  // プロトコルを明示的に指定
+                    });
+                });
+            });
+
             foreach (var source in _sources)
             {
                 builder.AddSource(source);
@@ -65,7 +89,7 @@ namespace TK75Attractions.Monitoring
                 UnityEngine.Debug.Log(ex);
             }
 
-            ActivityManager.Initialize(traceProvider, _sources);
+            ActivityManager.Initialize(traceProvider,loggerFactory ,_sources);
 
             condition = ProviderCondition.Activated;
             return;
