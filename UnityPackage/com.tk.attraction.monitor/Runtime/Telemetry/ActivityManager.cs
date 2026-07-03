@@ -2,7 +2,6 @@ using Microsoft.Extensions.Logging;
 using OpenTelemetry;
 using System;
 using OpenTelemetry.Trace;
-using OpenTelemetry.Resources;
 using System.Diagnostics;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
